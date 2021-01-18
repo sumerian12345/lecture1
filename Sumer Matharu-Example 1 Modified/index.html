@@ -1,0 +1,143 @@
+<!-- see also https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started -->
+
+<!DOCTYPE html> 
+<html>
+
+    <!-- everything that isn't content -->
+    <head>
+        <meta charset="utf-8">
+        <title>Apophenia Engine</title>
+
+        <!-- css -->
+        <style>
+            /* uncomment to change default font */
+            body {
+                background-color: black;
+                color: gainsboro;
+            }
+
+            html {
+                font-family: Arial;
+            }
+
+            img {
+                width: 1200px; /* set image width */
+            }
+
+            #caption {
+                display: none; /* start with caption hidden */
+                font-style: italic;
+                max-width: 1200px;
+                min-width: 100px;
+             }
+            }
+            }
+        </style>
+    </head>
+
+    <!-- content -->
+    <body>
+        <!-- some text and links -->
+        <center><p>
+            <b><u><a STYLE="text-decoration:none; color:inherit; font-size: x-large;" target="_blank" href="https://en.wikipedia.org/wiki/Apophenia#:~:text=Apophenia%20(%2F%C3%A6po%CA%8A%CB%88,meaningful%20connections%20between%20unrelated%20things.&text=Apophenia%20has%20come%20to%20imply,random%20information%2C%20such%20as%20gambling.">apophenia</a></u></b> <a style="font-size: x-large;">engine</a>
+        </p></center>
+        &nbsp;
+        <center><p STYLE="max-width: 1200px;"><i>
+            what: </i>a research project that bashed together 2 primitive 3D objects, and forced them to create a child<br><br>
+            <i>how: </i>the digital tool used was photogrammetry in Autodesk Recap 360. The software was 'misused' into forcing the fusion of 2 objects instead of creating a mesh model of a single physical object<br><br>
+            <i>when: </i>this project was completed in 2018 at the University of Calgary<br>
+        </p></center>
+        <!-- an image -->
+        <center><img id="myImage"
+             alt="primitive forced child matrix"
+             src="https://www.dropbox.com/s/uq2jstfftwfsir9/Primitive%20table.png?raw=1" usemap="#forcedchildmap"></center>
+             <map name="forcedchildmap">
+                <area shape ="rect" coords ="0,0,200,194"
+                onmouseover="writeText('Child of a sphere and a cube')"/>
+                <area shape ="rect" coords ="200,0,400,194"
+                onmouseover="writeText('Child of a cylinder and a sphere')"/>
+                <area shape ="rect" coords ="400,0,600,194"
+                onmouseover="writeText('Child of a sphere and 4 cylinders')"/>
+                <area shape ="rect" coords ="600,0,800,194"
+                onmouseover="writeText('Child of a torus and a sphere')"/>
+                <area shape ="rect" coords ="800,0,1000,194"
+                onmouseover="writeText('Child of a torus and a cube')"/>
+                <area shape ="rect" coords ="1000,0,1200,194"
+                onmouseover="writeText('Child of a torus and a cylinder')"/>
+
+                <area shape ="rect" coords ="0,194,200,388"
+                onmouseover="writeText('Child of a sphere and a cone')"/>
+                <area shape ="rect" coords ="200,194,400,388"
+                onmouseover="writeText('Child of a cylinder and a cube')"/>
+                <area shape ="rect" coords ="400,194,600,388"
+                onmouseover="writeText('Child of a sphere and a cone')"/>
+                <area shape ="rect" coords ="600,194,800,388"
+                onmouseover="writeText('Child of a cuboid and an ellipsoid')"/>
+                <area shape ="rect" coords ="800,194,1000,388"
+                onmouseover="writeText('Child of a large sphere and an offset cylinder')"/>
+                <area shape ="rect" coords ="1000,194,1200,388"
+                onmouseover="writeText('Child of a sphere and an offset elongated cylinder')"/>
+                
+                <area shape ="rect" coords ="0,388,200,582"
+                onmouseover="writeText('Child of a sphere and an offset extra elongated cylinder')"/>
+                <area shape ="rect" coords ="200,388,400,582"
+                onmouseover="writeText('Child of a sphere and an elongated cone')"/>
+                <area shape ="rect" coords ="400,388,600,582"
+                onmouseover="writeText('Child of an extruded hexagon and a cone')"/>
+                <area shape ="rect" coords ="600,388,800,582"
+                onmouseover="writeText('Child of an ellipsoid and a cylinder')"/>
+                <area shape ="rect" coords ="800,388,1000,582"
+                onmouseover="writeText('Child of a cube and a cone')"/>
+                <area shape ="rect" coords ="1000,388,1200,582"
+                onmouseover="writeText('Child of a sphere and an inverted cone')"/>
+                
+                <area shape ="rect" coords ="0,582,200,776"
+                onmouseover="writeText('Child of a torus and a small cylinder')"/>
+                <area shape ="rect" coords ="200,582,400,776"
+                onmouseover="writeText('Child of an ellipsoid and 2 cylinders')"/>
+                <area shape ="rect" coords ="400,582,600,776"
+                onmouseover="writeText('Child of a sphere and 2 cylinders')"/>
+                <area shape ="rect" coords ="600,582,800,776"
+                onmouseover="writeText('Child of a torus and a cone')"/>
+                <area shape ="rect" coords ="800,582,1000,776"
+                onmouseover="writeText('Child of a sphere and an elongated cylinder')"/>
+                <area shape ="rect" coords ="1000,582,1200,776"
+                onmouseover="writeText('Child of an offset inverted cone and a sphere')"/>
+
+                </map> 
+                
+                <center><p id="desc"><br>   </p></center>
+        <!-- a caption -->
+        <center><p>
+            Mouse over the different objects to see the different descriptions.
+        </center>
+        </p><br><br>
+
+        <center><p> Copyright 2021 <a STYLE="text-decoration:none; color:inherit"; target="_blank" href="http://www.sumersingh.com"><u>www.sumersingh.com</u></a></p></center>
+
+        <!-- javascript -->
+        <script type="application/javascript">
+            // get reference to html elements
+            const img = document.getElementById('myImage')
+
+            // listen to events related to the image
+            img.addEventListener('mouseover', mouseOver, false)
+            img.addEventListener('mouseout', mouseOut, false)
+
+            // define what happens when there is a mouse over event
+            function mouseOver() {
+                document.getElementById('caption').style.display = 'block';
+            }
+
+            // define what happens when there is a mouse out event
+            function mouseOut() {
+                document.getElementById('caption').style.display = 'none';
+            }
+            function writeText(txt) {
+  document.getElementById("desc").innerHTML = txt;
+}
+        </script>
+
+        <!-- the end -->
+    </body>
+</html>
